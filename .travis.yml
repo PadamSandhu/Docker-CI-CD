@@ -10,9 +10,9 @@ script:
 ## Above code is just to check the test results
 
 deploy:
-  provide: 'elasticbeanstalk'
+  provide: elasticbeanstalk
   region: 'us-east-1'
-  name: 'docker-react'
+  app: 'docker-react'
   env: 'Docker-evn'
   bucket_name: 'elasticbeanstalk-us-west-sdkasnmdlksadlksandsa'
   bucker_path: 'docker-react'
