@@ -14,6 +14,7 @@ RUN npm run build
 
 # This new from statement will stop last node:alpine block
 FROM nginx
-
+# This is for AWS elasticbeans
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
