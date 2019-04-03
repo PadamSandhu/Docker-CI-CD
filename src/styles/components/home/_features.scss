@@ -1,0 +1,39 @@
+.section-features {
+  margin-top: -8rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+    url(./assets/img/nat-4.jpg);
+  background-size: cover; // it will try to fit element to the width of the box
+  background-position: top; // This will not chop image on the
+
+  transform: skewY(-7deg); // Skew parent component and skew back all the child components back
+
+  & > * {
+    // This will select only direct child of this section-feature
+    transform: skewY(7deg);
+  }
+}
+
+.feature-box {
+  background-color: rgba($color: $color-white, $alpha: 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.8);
+  transition: transform 0.3s;
+
+  &__icon {
+    font-size: 6rem; // As out icon is a font, so we will treat it like a font
+    margin-bottom: 0.5rem;
+
+    // Adding Gradient to the font
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block; // So element doesn't take complete width of the block
+    -webkit-background-clip: text; // Background only get clipped where text is
+    color: transparent; // We don't see text but instead we see background gradient
+  }
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}

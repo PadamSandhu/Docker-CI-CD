@@ -1,0 +1,9 @@
+@mixin clearfix {
+  // This appends a sudo element after a selector which will clear anything
+  // this will clear float
+  &::after {
+    content: ""; // empty because we don't want to see this element on the page
+    display: table;
+    clear: both; // this clears float right and left
+  }
+}

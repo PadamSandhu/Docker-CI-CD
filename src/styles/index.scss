@@ -1,0 +1,28 @@
+@import "./icon-font.css";
+
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/grid";
+
+@import "components/header/index";
+@import "components/footer/footer";
+@import "components/common/button";
+@import "components/common/composition";
+@import "components/common/card";
+
+@import "components/home/about";
+@import "components/home/features";
+@import "components/home/tours";
+@import "components/home/stories";
+@import "components/home/booking";
+
+.App {
+  padding: 3rem;
+}

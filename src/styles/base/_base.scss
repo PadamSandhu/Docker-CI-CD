@@ -1,0 +1,22 @@
+*,     // * is a universal selector
+*::after,   // After and before sudo elements will also be targeted 
+*::before {
+  // This will do global rest of styles
+  margin: 0; // Will remove default margins of h1 etc..
+  padding: 0;
+  box-sizing: inherit; // This will force all children component to inherit, parent box-sizing property
+}
+
+html {
+  // This is the root font size!!
+  font-size: 62.5%; // Now 1 rem === 10px default font size of browser is 16px
+}
+
+body {
+  font-family: "Lato", "Roboto", sans-serif; // Default font type for whole application
+  font-weight: 400; // Default fount weight
+  line-height: 1.7; // Default line-height
+  color: #777777; // Default font color
+  font-size: 1.6rem;
+  box-sizing: border-box; // This will change box not to have padding and border;
+}

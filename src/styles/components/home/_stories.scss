@@ -1,0 +1,90 @@
+.section-stories {
+  padding: 15rem 0;
+  // background-color: $color-grey-light-1;  // If background color is active, it will not work with z index;
+  position: relative; // This is done for the video;
+
+  .story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: 0.1);
+    background-color: rgba($color-white, 0.6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    // For the angle
+    transform: skewX(-12deg);
+
+    // & > * {
+    //   // This one woudn't work because child already has transform property
+    //   transform: skewX(12deg);
+    // }
+
+    &__shape {
+      width: 15rem;
+      height: 15rem;
+      float: left; // Need this for shape outside to work, also need width and height
+      shape-outside: circle(50% at 50% 50%); // For this to work element needs to be floated
+      clip-path: circle(50% at 50% 50%);
+      // Best way to work with elements which are floated is to use transform
+      transform: translateX(-3rem) skewX(12deg);
+
+      position: relative;
+    }
+
+    &__image {
+      // We always have to give width/height to the image;
+      height: 100%;
+      transform: translateX(-4rem) scale(1.4);
+      backface-visibility: hidden; // This fixes alot of animation bugs/issues
+      transition: all 0.5s;
+    }
+
+    &__caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 20%);
+      color: $color-white;
+      font-size: 1.7rem;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.5s;
+      backface-visibility: hidden; // This fixes alot of animation bugs/issues
+    }
+
+    &:hover {
+      .story__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+      .story__image {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+      }
+    }
+
+    &__text {
+      transform: skewX(12deg);
+    }
+  }
+
+  // Video Config goes here!
+  .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    overflow: hidden; // If something overflows this will hide it. (Really important property)
+
+    &__content {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; // This will bit the video to the parent element background
+    }
+  }
+}

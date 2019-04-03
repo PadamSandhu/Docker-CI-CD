@@ -1,0 +1,55 @@
+// This section will handel animations
+
+// Note for browser ony two property we should transform is
+// opacity and transform for performance issue
+@keyframes moveInLeft {
+  0% {
+    // 0% is when animation starts
+    opacity: 0;
+    transform: translateX(-10rem); // we want to start our animation like this
+  }
+
+  80% {
+    // Something to happen when animation is at 80%
+    transform: translate(1rem); // this will go 20 px to right from original position
+  }
+
+  100% {
+    // 100% is when animation finish
+    opacity: 1;
+    transform: translate(0); // This will make it look, how it looks now
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    // 0% is when animation starts
+    opacity: 0;
+    transform: translateX(10rem); // we want to start our animation like this
+  }
+
+  80% {
+    // Something to happen when animation is at 80%
+    transform: translate(-1rem); // this will go 20 px to right from original postion
+  }
+
+  100% {
+    // 100% is when animation finish
+    opacity: 1;
+    transform: translate(0); // This will make it look, how it looks now
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    // 0% is when animation starts
+    opacity: 0;
+    transform: translateY(3rem); // we want to start our animation like this
+  }
+
+  100% {
+    // 100% is when animation finish
+    opacity: 1;
+    transform: translate(0); // This will make it look, how it looks now
+  }
+}

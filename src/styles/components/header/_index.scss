@@ -1,0 +1,80 @@
+.header {
+  height: 95vh; // It should always be 95% of view height;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+    url(./assets/img/hero.jpg);
+  background-size: cover; // it will try to fit element to the width of the box
+  background-position: top; // This will not chop image on the
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75%,
+    0 100%
+  ); // This will clip the image at the bottom; Defining 4 coordinates of the polygon
+
+  position: relative; /// This is required for .logo-box to be  a reference (ex 40px to top of this element)
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    .header__logo {
+      height: 3.5rem; // only specify the height and width will automatically adjust
+    }
+  }
+
+  .header__text-box {
+    // We are trying to center this in the middle of a page;
+    position: absolute; // This will be positioned in reference to relative parent;
+    left: 50%; // This is in reference to it's parent and text-box
+    top: 40%; // This is in reference to it's parent and text-box
+
+    text-align: center; // This will center the button in middle of the page
+
+    // transform is in relation to element itself
+    transform: translate(
+      -50%,
+      -50%
+    ); // This is just in reference .text-box it self  (this will move the current element 50% left and 50% top
+
+    .heading-primary {
+      color: $color-white;
+      text-transform: uppercase;
+      margin-bottom: 6rem;
+
+      // Block elements take complete width so it would be good to make heading-main and sub to be both block level components
+
+      &--main {
+        display: block; // This will take complete width of the screen
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: 3.5rem;
+
+        /// The code below handel animation
+        animation-name: moveInLeft; // We need to create animation name for this to work
+        animation-duration: 1s;
+
+        // animation-delay: 2s;
+        // animation-iteration-count: 3;  // This will  happen 3 times
+        animation-timing-function: ease-out; // This is the function where we can give multiple different animation
+      }
+
+      &--sub {
+        display: block; // This will take complete width of the screen
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+      }
+
+      .btn-white {
+        background: $color-white;
+        color: $color-grey-dark;
+      }
+    }
+  }
+}

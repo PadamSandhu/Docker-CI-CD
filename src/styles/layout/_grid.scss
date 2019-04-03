@@ -1,0 +1,53 @@
+.row {
+  max-width: $grid-width; // if 114rem width is available, than fill that or else fill max width
+  // background-color: #eee;
+  margin: 0 auto; // Center block element inside another block element.
+
+  &:not(:last-child) {
+    // it selects everything except the last child
+    margin-bottom: $gutter-vertical;
+  }
+  @include clearfix;
+
+  [class^="col-"] {
+    // Select classes which begins with col-
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal; // Space between two col
+    }
+  }
+
+  // Columns are always going to be inside a row
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+    // background-color: orangered; // This one has full code
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal; // Space between two col
+    }
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 *#{$gutter-horizontal}) / 3);
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 *#{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 *#{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 *#{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 *#{$gutter-horizontal}) / 4) + 2 *#{$gutter-horizontal});
+  }
+}

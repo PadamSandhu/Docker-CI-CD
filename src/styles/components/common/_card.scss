@@ -1,0 +1,182 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem; // To make this property work in firefox
+  position: relative;
+  height: 52rem; // This was required because the parent lost height when we took it out of the flow by using absolute position
+
+  &__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+
+    // So the cards are together
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    backface-visibility: hidden; // we will not be able to see the back part
+
+    border-radius: 3px;
+    overflow: hidden; // So image is overflowing on the corner , this option on parent will hide any overflow image
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
+
+    // position: relative;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg); // When we leave we want back to be flipped
+
+      // Custom Code for Cards
+
+      &--card-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+
+      &--card-2 {
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+      }
+
+      &--card-3 {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    // When card is hovered card side is transformed
+    // This only applies to the front side
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    // When card is hovered card side is transformed
+    // This only applies to the front side
+    transform: rotateY(0deg); // When we go to the front card it's going to be 0deg rot (So we can see the code)
+  }
+
+  // This is for Front end styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 85%,
+      0 100%
+    ); // Adding this so this can be supported by all the browsers
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--card-1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+        url(./assets/img/nat-5.jpg);
+      // We can blend two images or an image and gradient;
+      background-blend-mode: screen; // This property doesn't work with IE
+    }
+
+    &--card-2 {
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+        url(./assets/img/nat-6.jpg);
+      // We can blend two images or an image and gradient;
+      background-blend-mode: screen; // This property doesn't work with IE
+    }
+    &--card-3 {
+      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+        url(./assets/img/nat-7.jpg);
+      // We can blend two images or an image and gradient;
+      background-blend-mode: screen; // This property doesn't work with IE
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    // We want this to be at the top so use absolute
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; // To make this work on
+    box-decoration-break: clone; // This will add padding to the second line of span
+
+    &--card-1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+
+    &--card-2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+
+    &--card-3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; // As we are centering block element within a block element this is the simplest way to center
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // Back Side Styling
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; // This option gave some width;
+    // Center the button;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
