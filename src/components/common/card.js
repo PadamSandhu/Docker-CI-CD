@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Card(props) {
-  console.log(props);
+  // console.log(props);
   const customClass = props.customClass ? props.customClass : '';
   return (
     <div className="card">
