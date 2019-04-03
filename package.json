@@ -108,8 +108,8 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/padam/Documents/Git_Hub/Docker-CI-CD/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/padam/Documents/Git_Hub/Docker-CI-CD/node_modules/jest-watch-typeahead/testname.js"
+      "./node_modules/jest-watch-typeahead/filename.js",
+      "./node_modules/jest-watch-typeahead/testname.js"
     ]
   },
   "babel": {
