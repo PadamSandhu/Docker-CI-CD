@@ -9,15 +9,15 @@ script:
   - docker run sandhp7/docker-react npm run test -- --coverage
 ## Above code is just to check the test results
 
-deploy:
-  provide: elasticbeanstalk
-  region: 'us-east-1'
-  app: 'docker-react'
-  env: 'Docker-evn'
-  bucket_name: 'elasticbeanstalk-us-west-sdkasnmdlksadlksandsa'
-  bucker_path: 'docker-react'
-  on:
-    branch: master
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY""
+# deploy:
+#   provide: elasticbeanstalk
+#   region: 'us-east-1'
+#   app: 'docker-react'
+#   env: 'Docker-evn'
+#   bucket_name: 'elasticbeanstalk-us-west-sdkasnmdlksadlksandsa'
+#   bucker_path: 'docker-react'
+#   on:
+#     branch: master
+#   access_key_id: "$AWS_ACCESS_KEY"
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY""
